@@ -2,12 +2,16 @@
 
 供瀏覽器擴充功能 [Stylus](https://github.com/openstyles/stylus) 使用的自製 UserCSS 樣式。
 
+- `styles/`：實際安裝使用的樣式
+- `references/`：作為參考的第三方樣式原檔，不安裝
+
 ## Wikipedia Monokai (Wujidadi)
 
-檔案：`wikipedia-monokai-wujidadi.user.css`
+檔案：`styles/wikipedia-monokai-wujidadi.user.css`
 
 套用於 `wikipedia.org` 全站的深色樣式，配色取自 Monokai 與 VS Code 主題 Monokai-Wujidadi。
-選擇器結構與 SVG 圖示衍生自 [Wikipedia Catppuccin](https://github.com/catppuccin/userstyles/tree/main/styles/wikipedia)（MIT 授權）。
+選擇器結構與 SVG 圖示衍生自 [Wikipedia Catppuccin](https://github.com/catppuccin/userstyles/tree/main/styles/wikipedia)（MIT 授權）；
+毛玻璃、圓角與置頂標頭等版面效果衍生自 [Wikipedia modern dark and blur](https://userstyles.org/user-profile/4500589) 2.0.0（原檔存於 `references/wikipedia-modern-dark-and-blur.user.css`），配色全部改用 Monokai 調色盤。
 
 檔名雖以 `.user.css` 結尾，內容實為 Less，由檔頭的 `@preprocessor less` 交給 Stylus 編譯；
 `.user.css` 是 Stylus 安裝器唯一認得的副檔名，不可改成 `.less`。
@@ -29,7 +33,7 @@
 做法二：從本機檔案安裝
 
 1. 在瀏覽器的擴充功能管理頁開啟 Stylus 的「允許存取檔案 URL」。
-2. 於網址列開啟 `file:///<本倉庫路徑>/wikipedia-monokai-wujidadi.user.css`。
+2. 於網址列開啟 `file:///<本倉庫路徑>/styles/wikipedia-monokai-wujidadi.user.css`。
 3. 在 Stylus 安裝頁按「安裝樣式」；勾選「Live reload」後，檔案存檔即自動更新樣式。
 
 若同時裝有 Wikipedia Catppuccin 或其他維基百科樣式，需先停用，避免規則互相覆蓋。
@@ -38,9 +42,10 @@
 
 安裝後按樣式名稱旁的齒輪可調整：
 
-- 強調色：連結與按鈕的顏色，預設為青色 `#66d9ef`
+- 強調色：連結與按鈕的顏色，預設為藍色 `#819aff`
 - 柔和度：前景色向底色 `#272822` 混合的百分比，範圍 0–40，預設 12；0 為 Monokai 原始對比
 - 標示重新導向連結：勾選後 `.mw-redirect` 連結顯示為 `#6b99da`
+- 毛玻璃與圓角版面：預設開啟；取消勾選即回到純 Monokai 配色、不改版面
 
 ### 驗證
 
@@ -48,6 +53,6 @@
 Stylus 的 `@var` 變數需在檔案前自行補上：
 
 ```sh
-{ printf '@accentColor: sky;\n@highlight-redirect: 0;\n@softness: 12;\n'; cat wikipedia-monokai-wujidadi.user.css; } > /tmp/t.less
+{ printf '@accentColor: blue;\n@highlight-redirect: 0;\n@softness: 12;\n@modern-blur: 1;\n'; cat styles/wikipedia-monokai-wujidadi.user.css; } > /tmp/t.less
 npx -y less@4 /tmp/t.less /tmp/out.css
 ```
