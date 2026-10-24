@@ -1752,6 +1752,8 @@
         padding: 10px;
         margin-top: 10px;
         margin-bottom: 12px;
+        position: relative;
+        z-index: 100;
       }
 
       .vector-dropdown-content {
@@ -1784,20 +1786,6 @@
         &:hover {
           background: fade(@text, 10%) !important;
         }
-      }
-
-      .vector-menu-dropdown {
-        position: fixed !important;
-        top: 60px !important;
-        right: 20px !important;
-        background: fade(@crust, 95%) !important;
-        backdrop-filter: blur(4px) !important;
-        -webkit-backdrop-filter: blur(4px);
-        border-radius: @radius-lg;
-        box-shadow: 0 4px 14px fade(@crust, 50%);
-        padding: 10px;
-        width: max-content;
-        min-width: 180px;
       }
 
       .vector-pinned-container,
@@ -2383,6 +2371,27 @@
         outline: none !important;
       }
 
+      .vector-typeahead-search-container {
+        .cdx-search-input__input-wrapper {
+          border-radius: @radius-lg !important;
+        }
+
+        .cdx-text-input__input:enabled,
+        .cdx-text-input__input:enabled:hover,
+        .cdx-text-input__input:enabled:focus {
+          background-color: fade(@text, 10%) !important;
+          backdrop-filter: blur(8px) !important;
+          -webkit-backdrop-filter: blur(8px) !important;
+          border-radius: @radius-lg !important;
+          box-shadow: inset 0 0 5px fade(@text, 5%) !important;
+        }
+
+        .cdx-text-input__input:enabled:focus {
+          background-color: fade(@text, 14%) !important;
+          box-shadow: 0 0 0 1px @accent-color !important;
+        }
+      }
+
       .cdx-button.cdx-search-input__end-button {
         background: fade(@text, 10%) !important;
         border: none !important;
@@ -2425,7 +2434,7 @@
         position: relative !important;
       }
 
-      #searchInput {
+      #search-input #searchInput {
         width: 100% !important;
         padding: 0.8rem 1rem !important;
         border-radius: @radius-lg !important;
