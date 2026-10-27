@@ -593,6 +593,19 @@
       color: #e5534b;
     }
 
+    /* 維基百科深色模式把 style="background:none" 誤判為淺色底，表格內連結被設為 --color-base-fixed */
+    .mw-parser-output table:is([style*="background:none"], [style*="background: none"])
+      a:not(.mw-selflink):not(:is([bgcolor], tr[style*="background"], td[style*="background"]) a) {
+      color: @accent-color !important;
+      &:visited {
+        color: @mauve !important;
+      }
+      &.new,
+      &.new:visited {
+        color: #e5534b !important;
+      }
+    }
+
     .mw-parser-output .cs1-visible-error,
     .mw-plusminus-neg {
       color: @red;
