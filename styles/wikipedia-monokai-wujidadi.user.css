@@ -2166,6 +2166,25 @@
         background-color: transparent !important;
       }
 
+      /* bgcolor 底色已被上列規則蓋成深色，站方 [bgcolor] 的 #333 文字與深色連結需改回淺色 */
+      .mw-parser-output [bgcolor] {
+        color: @text;
+        a:not(.mw-selflink):not(td[style*="background"] a) {
+          color: @accent-color !important;
+          &:visited {
+            color: @mauve !important;
+          }
+          &.new,
+          &.new:visited {
+            color: #e5534b !important;
+          }
+        }
+      }
+
+      #bodyContent {
+        overflow-x: auto;
+      }
+
       table th {
         background-color: @surface2 !important;
         font-weight: bold !important;
