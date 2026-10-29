@@ -1714,6 +1714,23 @@
         border-bottom: 1px solid @glass-line;
       }
 
+      /* 圖片檢視器（MultimediaViewer）原本的 1000～1005 低於上方標頭的 99999，整組上移並保留相對順序 */
+      .mw-mmv-overlay {
+        z-index: 100000 !important;
+      }
+
+      .mw-mmv-wrapper {
+        z-index: 100001 !important;
+      }
+
+      .cdx-button.mw-mmv-button {
+        z-index: 100003 !important;
+      }
+
+      .mw-mmv-dialog {
+        z-index: 100004 !important;
+      }
+
       header.vector-header {
         height: 80px !important;
         display: flex !important;
