@@ -1,0 +1,1264 @@
+/* ==UserStyle==
+@name Baidu Baike Monokai (Wujidadi)
+@namespace github.com/wujidadi/stylus/baidu-baike-monokai
+@version 1.0.0
+@description 以 Monokai 與 VS Code 主題 Monokai-Wujidadi 配色的百度百科深色樣式，調色盤與毛玻璃圓角版面沿用 Wikipedia Monokai (Wujidadi)
+@author Wujidadi
+@license MIT
+
+@preprocessor less
+@var select accentColor "強調色（連結、按鈕）" ["blue:藍 Blue*", "sky:青 Cyan", "green:綠 Green", "peach:橘 Orange", "yellow:黃 Yellow", "red:洋紅 Pink", "mauve:紫 Purple", "subtext0:灰 Gray"]
+@var range softness "柔和度（前景色向底色混合 %）" [12, 0, 40, 1]
+@var checkbox modern-blur "毛玻璃與圓角版面" 1
+==/UserStyle== */
+
+@-moz-document domain('baike.baidu.com') {
+  :root {
+    #monokai(@accentColor);
+  }
+
+  #monokai(@accent) {
+    @k: (@softness * 1%);
+    @rosewater: mix(@base, #f8f8f0, @k);
+    @flamingo: mix(@base, #cd9731, @k);
+    @pink: mix(@base, #b267e6, @k);
+    @mauve: mix(@base, #ae81ff, @k);
+    @red: mix(@base, #f92672, @k);
+    @maroon: mix(@base, #f44747, @k);
+    @peach: mix(@base, #fd971f, @k);
+    @yellow: mix(@base, #e6db74, @k);
+    @green: mix(@base, #a6e22e, @k);
+    @teal: mix(@base, #56adbc, @k);
+    @sky: mix(@base, #66d9ef, @k);
+    @sapphire: mix(@base, #6796e6, @k);
+    @blue: mix(@base, #819aff, @k);
+    @lavender: mix(@base, #b9d5fd, @k);
+    @text: mix(@base, #f8f8f2, @k);
+    @subtext1: mix(@base, #e3e3dd, @k);
+    @subtext0: mix(@base, #c2c2bf, @k);
+    @overlay2: #90908a;
+    @overlay1: #838277;
+    @overlay0: #75715e;
+    @surface2: #49483e;
+    @surface1: #3e3d32;
+    @surface0: #32342d;
+    @base: #272822;
+    @mantle: #1e1f1c;
+    @crust: #171814;
+    @comment: mix(@base, #648048, @k);
+    @accent-color: @@accent;
+    @accent-hover: lighten(@accent-color, 8%);
+
+    color-scheme: dark;
+
+    ::selection {
+      background-color: fade(#878b91, 38%);
+    }
+
+    input,
+    textarea {
+      &::placeholder {
+        color: @subtext0 !important;
+      }
+    }
+
+    /* 全站底色與文字 */
+    body,
+    [class^="pageWrapper_"],
+    [class^="homePage_"],
+    [class^="container_"] {
+      background-color: @mantle !important;
+      color: @text;
+    }
+
+    a {
+      color: @accent-color;
+    }
+
+    /* 頂部百度產品列 */
+    [class^="index-module_pageHeader__"],
+    [class^="headerWrap_"] {
+      background-color: @base !important;
+    }
+
+    [class^="index-module_topbar__"] {
+      border-bottom-color: @surface1 !important;
+    }
+
+    [class^="index-module_separator__"] {
+      border-right-color: @surface1 !important;
+    }
+
+    .container .tabItem,
+    .user-bar,
+    .user-bar .user-bar-item > a,
+    .user-bar .user-bar-item .menu-item a {
+      color: @subtext1 !important;
+    }
+
+    .user-bar .user-bar-item .menu-item a:hover {
+      background: @accent-color !important;
+      color: @base !important;
+    }
+
+    .user-bar .user-bar-item .lemma-msg-bubble {
+      background: @surface0 !important;
+      color: @text;
+    }
+
+    /* 搜尋列 */
+    .searchBar .logoWrapper .logo {
+      filter: brightness(0.9) contrast(1.1);
+    }
+
+    .searchBar .rightWrapper .inputWrapper .searchInput {
+      background-color: @surface0 !important;
+      border-color: @surface2 !important;
+      color: @text !important;
+
+      &:hover {
+        border-color: @overlay0 !important;
+      }
+
+      &:focus {
+        border-color: @accent-color !important;
+      }
+    }
+
+    .searchBar .rightWrapper .inputWrapper .placeholder,
+    .searchBar .rightWrapper .inputWrapper .closeIcon {
+      color: @overlay2 !important;
+    }
+
+    .searchBar .rightWrapper .lemmaBtn {
+      background: @accent-color !important;
+      border-color: @accent-color !important;
+      color: @base !important;
+
+      &:hover {
+        background: @accent-hover !important;
+        border-color: @accent-hover !important;
+      }
+    }
+
+    .searchBar .rightWrapper .siteBtn {
+      background-color: transparent !important;
+      border-color: @accent-color !important;
+      color: @accent-color !important;
+    }
+
+    .searchBar .rightWrapper .intlBtn,
+    .searchBar .rightWrapper .helpBtn {
+      color: @subtext0 !important;
+    }
+
+    .searchBar .rightWrapper .inputWrapper .resultWrapper,
+    .searchBar .rightWrapper .inputWrapper [class*="suggestion"],
+    .fixedWrapper,
+    .fixedWrapper .fixedBg {
+      background-color: @base !important;
+      color: @text;
+    }
+
+    .fixedWrapper {
+      border-bottom: 1px solid @surface1;
+      box-shadow: 0 2px 8px fade(@crust, 60%) !important;
+    }
+
+    /* 藍色導覽列 */
+    [class^="index-module_navBarWrapper__"],
+    [class^="index-module_navBar__"],
+    [class^="index-module_navBarList__"] {
+      background: @surface0 !important;
+    }
+
+    [class^="index-module_navBarWrapper__"] {
+      border-top: 1px solid @surface1;
+      border-bottom: 1px solid @surface1;
+
+      dt a,
+      [class^="index-module_usercenter__"] a {
+        color: @text !important;
+      }
+
+      dd [class^="index-module_navBarItem__"] a {
+        color: @subtext0 !important;
+
+        &:hover {
+          border-bottom-color: @accent-color !important;
+          color: @accent-color !important;
+        }
+      }
+    }
+
+    [class^="index-module_navBarList__"] {
+      border-color: transparent !important;
+    }
+
+    [class^="index-module_navBarBg__"],
+    [class*=" index-module_navBarBg__"] {
+      background-color: @surface0 !important;
+    }
+
+    /* 詞條頭部 */
+    [class^="secondContainer_"] {
+      background-color: @mantle !important;
+    }
+
+    [class^="secondContainer_"][class*=" normalHeader_"] {
+      background-image: linear-gradient(180deg, @surface0, @mantle) !important;
+    }
+
+    [class^="secondMask_"] {
+      background: linear-gradient(180deg, fade(@mantle, 0%), @mantle 44%, @mantle) !important;
+    }
+
+    [class^="lemmaTitleWrap_"] {
+      [class^="lemmaTitle_"],
+      [class^="lemmaPinyin_"] {
+        color: @text !important;
+      }
+
+      [class^="lemmaDesc_"],
+      [class^="subTitle_"] {
+        color: @subtext1 !important;
+      }
+
+      [class^="polysemantText_"] {
+        color: @accent-color !important;
+
+        &::before {
+          background-color: @surface2 !important;
+        }
+      }
+
+      [class*="btnItem_"] {
+        background: fade(@surface0, 80%) !important;
+        border-color: @surface2 !important;
+        box-shadow: none !important;
+        color: @subtext1 !important;
+
+        svg {
+          color: @accent-color !important;
+        }
+
+        &:not([class*="disabled_"]):hover {
+          background: @accent-color !important;
+          border-color: @accent-color !important;
+          color: @base !important;
+
+          svg {
+            color: @base !important;
+          }
+        }
+
+        &[class*="disabled_"],
+        &[class*="disabled_"] svg {
+          color: @overlay0 !important;
+        }
+      }
+
+      [class^="discussionNum_"] {
+        background: @red !important;
+        color: @text !important;
+      }
+    }
+
+    [class^="lemmaTitleWrap_"][class*=" lightText_"] {
+      [class^="lemmaTitle_"],
+      [class^="lemmaPinyin_"],
+      [class^="lemmaDesc_"] {
+        color: #fff !important;
+      }
+
+      [class*="btnItem_"] {
+        background: fade(@crust, 55%) !important;
+        border: none !important;
+        color: #fff !important;
+
+        svg {
+          color: #fff !important;
+        }
+      }
+    }
+
+    /* 正文容器 */
+    [class^="contentBox_"],
+    [class^="relatedSearch_"] {
+      background-color: @base !important;
+      border-color: @surface1 !important;
+    }
+
+    [class^="mainContent_"] {
+      color: @text;
+    }
+
+    [class^="topToolsWrap_"] {
+      color: @subtext0;
+
+      .lemma-subscribe,
+      [class^="voteTip_"],
+      [class^="shareCount_"],
+      [class^="count_"] {
+        color: @subtext0 !important;
+      }
+
+      .lemma-subscribe__icon {
+        filter: invert(0.75);
+      }
+    }
+
+    /* 待完善提示與「內容是否有幫助」回饋列 */
+    [class^="editPrompt_"] {
+      background: @mantle !important;
+      border-color: @surface1 !important;
+      color: @text !important;
+
+      [class^="editBtn_"] {
+        color: @accent-color !important;
+      }
+    }
+
+    [class^="feedback-wrap_"] {
+      background: @mantle !important;
+    }
+
+    [class^="feedback-label_"],
+    [class^="feedback-btn_"] {
+      color: @subtext0 !important;
+    }
+
+    [class^="feedback-btn_"]:hover,
+    [class^="feedback-btn_"][class*=" is-active_"] {
+      color: @accent-color !important;
+    }
+
+    [class^="creditBottomBox_"] [class^="feedback_"] {
+      [class^="error_"],
+      [class^="more_"] {
+        border-color: @surface1 !important;
+        color: @subtext0 !important;
+      }
+    }
+
+    .bubble-box .bubble-content {
+      background-color: transparent !important;
+      color: @text !important;
+    }
+
+    .bubble-box .bubble-arrow {
+      background-color: @surface0 !important;
+      border-color: @surface2 !important;
+      box-shadow: none !important;
+    }
+
+    /* 使用者資訊氣泡 */
+    [class^="userCard_"] {
+      [class^="uname_"] {
+        color: @text !important;
+      }
+
+      [class^="userFeaturedNum_"],
+      [class^="userLevel_"] {
+        color: @subtext0 !important;
+
+        span {
+          color: @text !important;
+        }
+      }
+
+      [class^="bubbleBottom_"] {
+        background: transparent !important;
+        border-top-color: @surface1 !important;
+        color: @subtext0 !important;
+      }
+    }
+
+    [class^="shareBubble_"],
+    .bubble-box,
+    .popup-content {
+      background: @surface0 !important;
+      border-color: @surface2 !important;
+      box-shadow: 0 2px 8px fade(@crust, 60%) !important;
+      color: @text !important;
+    }
+
+    /* 段落文字與連結 */
+    [class^="para_"],
+    [class^="text_"],
+    [class*=" text_"].J-lemma-content-lemma-text {
+      color: @text !important;
+    }
+
+    [class^="text_"] [class^="innerLink_"],
+    [class^="innerLink_"] {
+      color: @accent-color !important;
+
+      &:hover {
+        color: @accent-hover !important;
+      }
+    }
+
+    [class^="text_"][class*=" border_"] {
+      border-color: @overlay0 !important;
+    }
+
+    [class^="text_"].with-ctr {
+      background: fade(@overlay2, 20%) !important;
+    }
+
+    [class^="text_"].with-bg,
+    [class^="supWrap_"] sup.with-bg,
+    [class^="referenceItem_"].ref-with-bg {
+      background: fade(@yellow, 25%) !important;
+    }
+
+    [class^="supWrap_"] sup {
+      color: @sapphire !important;
+    }
+
+    [class^="supWrap_"] sup[class*="hasDoubtStatus_"] {
+      color: @peach !important;
+    }
+
+    [class^="listDot_"]::before,
+    [class^="listDot_"]::marker {
+      color: @subtext0 !important;
+    }
+
+    /* 段落標題 */
+    [class^="paraTitle_"] {
+      h2,
+      h3,
+      h4 {
+        color: @text !important;
+      }
+
+      [class^="titleLine_"] {
+        background: @surface1 !important;
+      }
+
+      [class^="editLemma_"],
+      [class^="editLemma_"] svg {
+        color: @overlay2 !important;
+
+        &:hover {
+          color: @accent-color !important;
+        }
+      }
+    }
+
+    [class^="paraTitle_"][class*=" level-1_"] {
+      border-left-color: @accent-color !important;
+    }
+
+    [class^="headTitle_"] [class^="headName_"],
+    [class^="headTitle_"] [class^="otherName_"] {
+      color: @text !important;
+    }
+
+    /* 基本資訊框 */
+    [class^="basicInfo_"] {
+      background: @mantle !important;
+      border: 1px solid @surface1;
+
+      [class*=" itemName_"] {
+        color: @subtext0 !important;
+      }
+
+      [class*=" itemValue_"] {
+        color: @text !important;
+      }
+
+      [class^="toggle_"] {
+        background-image: linear-gradient(90deg, fade(@mantle, 0%), @mantle 58%) !important;
+        color: @subtext0 !important;
+
+        svg {
+          color: @subtext0 !important;
+        }
+      }
+
+      [class^="basicInfoOverlap_"],
+      [class^="overlap_"] {
+        background: @mantle !important;
+        border-color: @surface2 !important;
+        box-shadow: 0 2px 8px fade(@crust, 60%) !important;
+      }
+
+      [class^="bubbleItem_"] {
+        background-color: @surface0 !important;
+        border-color: @surface2 !important;
+      }
+
+      [class^="triangleBg_"] {
+        border-bottom-color: @surface0 !important;
+      }
+
+      [class^="triangleBorder_"] {
+        border-bottom-color: @surface2 !important;
+      }
+    }
+
+    /* 目錄 */
+    [class^="catalogWrapper_"] [class^="catalog_"] {
+      background: @mantle !important;
+      border-color: @surface1 !important;
+
+      [class^="catalogTitle_"] {
+        color: @text !important;
+      }
+
+      [class^="catalogList_"] {
+        background-color: @base !important;
+        border-left-color: @surface1 !important;
+
+        ol {
+          border-left-color: @surface0 !important;
+        }
+      }
+
+      [class^="catalogText_"] {
+        background-color: @base !important;
+      }
+
+      [class^="level1_"] [class^="catalogIndex_"] {
+        color: @accent-color !important;
+      }
+
+      [class^="level1_"] [class^="catalogText_"] a {
+        color: @accent-color !important;
+      }
+
+      [class^="level2_"] [class^="catalogIndex_"] {
+        color: @overlay2 !important;
+      }
+
+      [class^="level2_"] [class^="catalogText_"] a {
+        color: @subtext1 !important;
+      }
+    }
+
+    /* 側邊浮動目錄 */
+    [class^="sideCatalog_"] {
+      [class^="line_"] {
+        border-left-color: @surface1 !important;
+      }
+
+      [class^="catalogItem_"] {
+        color: @subtext1 !important;
+
+        &[class*=" level-2_"] {
+          color: @subtext0 !important;
+        }
+
+        &:hover {
+          background: @surface0 !important;
+          color: @accent-color !important;
+        }
+
+        &[class*=" active_"] {
+          color: @accent-color !important;
+        }
+
+        [class^="titleIndex_"] em {
+          background: @overlay0 !important;
+        }
+
+        &:hover [class^="titleIndex_"] em,
+        &[class*=" active_"] [class^="titleIndex_"] em {
+          background: @accent-color !important;
+        }
+
+        [class^="arrow_"] {
+          border-left-color: @accent-color !important;
+        }
+      }
+
+      [class^="toTop_"] {
+        background: @surface0 !important;
+        box-shadow: 0 2px 6px fade(@crust, 60%) !important;
+        color: @subtext1 !important;
+      }
+    }
+
+    /* 表格 */
+    [class^="moduleTable_"] {
+      [class^="tableBox_"] {
+        color: @text !important;
+      }
+
+      caption {
+        color: @subtext1 !important;
+      }
+
+      [class^="tableTd_"],
+      [class^="tableTh_"] {
+        border-color: @surface2 !important;
+      }
+
+      [class^="tableTh_"] {
+        background-color: @surface0 !important;
+        color: @text !important;
+      }
+    }
+
+    [class^="moduleTable_"][class*=" noBorder_"] [class^="tableTd_"] {
+      border-color: transparent !important;
+    }
+
+    /* 程式碼區塊 */
+    [class^="codeWraper_"] {
+      background-color: @mantle !important;
+      border-color: @surface1 !important;
+      color: @text !important;
+    }
+
+    /* 圖片與圖說 */
+    [class*="lemmaPicture_"] [class*="imageLink_"],
+    [class*="imageLink_"] {
+      background-color: @surface0 !important;
+    }
+
+    [class^="picture_"] {
+      border-color: @surface1 !important;
+    }
+
+    [class^="titleSpan_"] {
+      color: @subtext0 !important;
+
+      &[class*=" normal_"] {
+        border-top-color: @surface1 !important;
+      }
+    }
+
+    [class^="formulaContainer_"] img {
+      filter: invert(0.88) hue-rotate(180deg);
+    }
+
+    /* 骨架載入佔位 */
+    [class*="skeleton"]:empty,
+    [class*="Skeleton"]:empty,
+    [class*="skeletonWrap_"] [class]:empty {
+      background: linear-gradient(90deg, @surface0 25%, @surface1 37%, @surface0 63%) !important;
+      background-size: 400% 100% !important;
+    }
+
+    [class*="skeletonContent_"] {
+      border-color: @surface1 !important;
+    }
+
+    /* 結構化卡片（星圖） */
+    [class*="starMapSlide_"],
+    [class*="leakSlide_"] {
+      border-color: @surface1 !important;
+    }
+
+    [class^="lemmaStarMap_"] [class^="headerWrap_"] {
+      background-color: transparent !important;
+      color: @text !important;
+    }
+
+    [class*="starMapItemImg_"] {
+      background-color: @surface0 !important;
+    }
+
+    [class^="starMapMultiTitle_"],
+    [class^="starMapMultiItemInfoTitle_"] {
+      color: @text !important;
+    }
+
+    [class^="starMapMultiItemInfoDesc_"] {
+      color: @subtext0 !important;
+    }
+
+    [class^="nextBg_"],
+    [class^="specialBg_"] {
+      background-image: linear-gradient(270deg, @base, fade(@base, 0%)) !important;
+    }
+
+    [class*="navBtn_"],
+    [class*="swiperNextBtn_"],
+    [class*="hasDesc_"],
+    [class^="starWrap_"] {
+      background-color: fade(@surface0, 85%) !important;
+      border-color: @surface2 !important;
+      color: @text !important;
+    }
+
+    /* 相冊 */
+    [class^="albumList_"] {
+      [class^="title_"] {
+        color: @text !important;
+      }
+
+      [class^="more_"],
+      [class^="desc_"] {
+        color: @subtext0 !important;
+      }
+    }
+
+    [class*="coverPic_"],
+    [class*="albumWrapper_"] [class^="titleBox_"],
+    [class*="albumWrapper_"][class*=" movie_"] {
+      border-color: @surface1 !important;
+    }
+
+    [class*="albumWrapper_"] {
+      [class^="inner_"] {
+        color: @subtext0 !important;
+      }
+
+      [class^="total_"] {
+        color: @overlay2 !important;
+      }
+
+      [class^="albumBg_"]::before,
+      [class^="albumBg_"]::after {
+        border-color: @surface1 !important;
+        border-top-color: @surface0 !important;
+      }
+    }
+
+    /* 參考資料 */
+    [class^="lemmaReference_"] [class^="referenceTitle_"],
+    [class^="sciencePaperTitle_"] {
+      border-bottom-color: @surface2 !important;
+      color: @text !important;
+    }
+
+    [class^="referenceItem_"] {
+      color: @overlay2 !important;
+
+      [class^="refIndex_"],
+      [class^="refLink_"] {
+        color: @subtext0 !important;
+      }
+
+      [class^="refLink_"]:hover {
+        border-bottom-color: @accent-color !important;
+        color: @accent-color !important;
+      }
+
+      [class^="remarks_"] {
+        color: @overlay2 !important;
+      }
+
+      [class^="gotop_"] {
+        color: @surface2 !important;
+      }
+
+      [class^="gotopTip_"] {
+        color: @text !important;
+      }
+    }
+
+    [class^="sciencePaperItem_"] [class^="itemLink_"] {
+      color: @subtext0 !important;
+    }
+
+    [class^="toggle_"] {
+      background-color: @surface0 !important;
+      color: @subtext0 !important;
+    }
+
+    /* 註腳氣泡 */
+    [class^="referenceTip_"] {
+      background: transparent !important;
+      box-shadow: 0 2px 8px fade(@crust, 60%) !important;
+      color: @text !important;
+
+      [class^="content_"] {
+        background: @mantle !important;
+        border-color: @surface2 !important;
+      }
+
+      [class^="arrowBg_"] {
+        border-bottom-color: @mantle !important;
+      }
+
+      [class^="arrowBorder_"] {
+        border-bottom-color: @surface2 !important;
+      }
+
+      [class^="aiTipsWrap_"] {
+        color: @overlay2 !important;
+      }
+    }
+
+    [class^="referenceTipItem_"] {
+      [class^="referenceTipTitle_"],
+      [class^="referenceTipTitle_"] svg {
+        color: @text !important;
+      }
+
+      [class^="referenceTipTitle_"][class*=" link_"]:hover {
+        border-bottom-color: @accent-color !important;
+        color: @accent-color !important;
+      }
+
+      [class^="referenceTipDate_"],
+      [class^="type4Remarks_"] {
+        color: @subtext0 !important;
+      }
+
+      [class^="imgItem_"] {
+        background-color: @surface1 !important;
+        border-color: @surface2 !important;
+      }
+    }
+
+    /* 側欄卡片 */
+    [class^="abstractAlbum_"] {
+      border-color: @surface1 !important;
+      background-color: @mantle !important;
+      box-shadow: none !important;
+
+      [class^="albumInfo_"] {
+        color: @text !important;
+      }
+    }
+
+    [class^="professionalWrapper_"] {
+      background-color: @mantle !important;
+      border-color: @surface1 !important;
+
+      [class^="professionalHeader_"] {
+        background: @surface0 !important;
+      }
+
+      h2,
+      h3,
+      h4 {
+        color: @text !important;
+      }
+
+      p {
+        color: @subtext0 !important;
+      }
+
+      [class^="itemLine_"] {
+        background: @accent-color !important;
+      }
+
+      [class^="footer_"] {
+        border-top-color: @surface1 !important;
+      }
+    }
+
+    [class^="channel_"] {
+      border-color: @surface2 !important;
+      color: @subtext0 !important;
+    }
+
+    [class^="tashuoWrap_"],
+    [class^="authEdit_"],
+    [class^="lemmaStatistics_"],
+    [class^="unionAd_"],
+    [class^="fixed_"] {
+      background-color: @mantle !important;
+      border-color: @surface1 !important;
+      color: @text;
+    }
+
+    [class^="tashuoWrap_"] {
+      [class^="tsTitle_"],
+      [class^="authorName_"] {
+        color: @text !important;
+      }
+
+      [class^="tsSummary_"],
+      [class^="authorDesc_"] {
+        color: @subtext0 !important;
+      }
+    }
+
+    [class^="authImg_"] {
+      background-color: @surface0 !important;
+      border-color: @surface2 !important;
+    }
+
+    [class^="authTitle_"],
+    [class^="lemmaStatistics_"] [class^="title_"] {
+      color: @text !important;
+    }
+
+    [class^="authVersion_"],
+    [class^="lemmaStatistics_"] [class^="description_"] {
+      color: @subtext0 !important;
+    }
+
+    /* 相關搜尋 */
+    [class^="relatedSearch_"] {
+      h6 {
+        color: @text !important;
+      }
+
+      ul li {
+        background: @surface0 !important;
+
+        a {
+          color: @accent-color !important;
+        }
+      }
+
+      ul :hover {
+        background: @surface1 !important;
+      }
+    }
+
+    /* 頁尾 */
+    .page-footer-content,
+    .page-footer-content .block-item,
+    .copyright {
+      color: @subtext0 !important;
+    }
+
+    .page-footer-content a,
+    .copyright a {
+      color: @accent-color !important;
+    }
+
+    .page-footer-content .block-item .block-title {
+      color: @subtext1 !important;
+
+      svg {
+        color: @overlay2 !important;
+      }
+    }
+
+    /* 朗讀按鈕與播放器 */
+    [class^="ttsBtn__"][class*=" searchBar_"],
+    [class^="ttsBtn__"][class*=" paragraph_"],
+    [class^="ttsBtn__"][class*=" paragraph_"] > svg {
+      color: @overlay2 !important;
+
+      &:hover {
+        color: @accent-color !important;
+      }
+    }
+
+    [class^="ttsBtn__"][class*=" playing_"],
+    [class^="ttsBtn__"][class*=" playing_"] > svg {
+      color: @accent-color !important;
+    }
+
+    [class^="voiceLeft_"],
+    [class^="voiceRight_"] {
+      background-color: @surface0 !important;
+    }
+
+    /* 動態百科卡片 */
+    [class^="dynamicWiki_"] {
+      border-color: @surface1 !important;
+    }
+
+    [class^="dynamicWiki__title_"],
+    [class^="dynamicWiki__content__loading_"] {
+      background-color: @mantle !important;
+    }
+
+    [class^="dynamicWikTitle__slogan_"],
+    [class^="dynamicWikTitle__text_"],
+    [class^="toggleBtn_"] {
+      color: @text !important;
+    }
+
+    [class^="dynamicWikTitle__slogan__text_"],
+    [class^="dynamicWiki__disclaimer"] {
+      color: @subtext0 !important;
+    }
+
+    [class^="dynamicWiki__content__goBtn_"] {
+      background: linear-gradient(180deg, fade(@base, 0%), @base 30%, @base) !important;
+    }
+
+    [class^="goBtn_"] {
+      background: @accent-color !important;
+      color: @base !important;
+    }
+
+    /* 側欄與星圖的零星灰字 */
+    [class^="headTitle_"] [class^="headLabel_"],
+    [class^="headTitle_"] [class^="headIcon_"],
+    [class^="StarMapIcon_"],
+    [class^="userCard_"] [class^="userName_"],
+    [class*="Pager_"] [class^="Index_"],
+    [class^="desc_"] {
+      color: @subtext0 !important;
+    }
+
+    [class^="StarMapIcon_"] svg {
+      color: @overlay2 !important;
+    }
+
+    [class^="lemmaStatistics_"] [class^="goHistory_"] {
+      color: @accent-color !important;
+    }
+
+    [class^="normalProfessional_"] [class^="footerTitle_"] {
+      i {
+        border-top-color: @surface1 !important;
+      }
+
+      span {
+        background: @mantle !important;
+        color: @subtext0 !important;
+      }
+    }
+
+    /* 對話框：訂閱、認領、修改建議、通知與 rc-dialog */
+    .lemma-subscribe-modal,
+    .confirm-modal,
+    .claimed-modal,
+    .claimed-notice-wrapper,
+    .rc-dialog-content,
+    .rc-dialog-header,
+    .bk-dialog .rc-dialog-content,
+    .bk-dialog .rc-dialog-header {
+      background-color: @base !important;
+      border-color: @surface2 !important;
+      box-shadow: 0 4px 16px fade(@crust, 70%) !important;
+      color: @text !important;
+    }
+
+    .subscribe-header__title,
+    .subscribe-content__option-title,
+    .confirm-modal__title,
+    .claimed-notice-header__title,
+    .claimed-modal-header__title,
+    .modify-section__label,
+    .notify-content__option-title,
+    .rc-dialog-title,
+    .bk-dialog .rc-dialog-title {
+      color: @text !important;
+    }
+
+    .subscribe-content__desc,
+    .subscribe-content__option-desc,
+    .confirm-modal__desc,
+    .notify-content__option-desc,
+    .modify-section__textarea-info,
+    .modify-section__textarea-count,
+    .modify-section__image-upload-icon,
+    .modify-section__image-upload-text,
+    .rc-dialog-close,
+    .bk-dialog .rc-dialog-close {
+      color: @subtext0 !important;
+    }
+
+    .subscribe-header__subtitle {
+      background-color: fade(@accent-color, 15%) !important;
+      color: @accent-color !important;
+    }
+
+    .subscribe-content__desc-link {
+      color: @accent-color !important;
+    }
+
+    .subscribe-content__option,
+    .notify-content__option,
+    .modify-section__tag,
+    .modify-section__textarea,
+    .modify-section__image-upload {
+      background-color: @surface0 !important;
+      color: @text !important;
+    }
+
+    .modify-section__tag:hover,
+    .modify-section__image-upload:hover {
+      background-color: @surface1 !important;
+    }
+
+    .modify-section__tag.selected {
+      background-color: fade(@accent-color, 15%) !important;
+      border-color: @accent-color !important;
+      color: @accent-color !important;
+    }
+
+    .modify-section__required,
+    .modify-section__textarea-hint {
+      color: @red !important;
+    }
+
+    .subscribe-content__option-checkbox,
+    .notify-content__option-checkbox {
+      border-color: @overlay0 !important;
+    }
+
+    .subscribe-content__option-checkbox.checked,
+    .notify-content__option-checkbox.checked,
+    .subscribe-content__btn--confirm,
+    .subscribe-content__confirm-btn,
+    .notify-content__confirm-btn,
+    .confirm-modal__btn--cancel,
+    .claimed-notice-content__btn.fill,
+    .modify-actions__submit {
+      background-color: @accent-color !important;
+      border-color: @accent-color !important;
+      color: @base !important;
+    }
+
+    .subscribe-content__btn--cancel,
+    .confirm-modal__btn--confirm,
+    .claimed-notice-content__btn.solid,
+    .modify-actions__cancel {
+      background-color: transparent !important;
+      border-color: @accent-color !important;
+      color: @accent-color !important;
+    }
+
+    .subscribe-header__close,
+    .claimed-notice-header__close,
+    .claimed-modal-header__close {
+      filter: invert(1);
+    }
+
+    .rc-dialog-mask {
+      background-color: fade(@crust, 70%) !important;
+    }
+
+    /* 毛玻璃與圓角版面 */
+    & when (@modern-blur = 1) {
+      @glass-line: fade(@text, 10%);
+      @glass-shadow: 0 4px 12px fade(@crust, 60%);
+      @radius: 10px;
+      @radius-lg: 12px;
+
+      body,
+      [class^="pageWrapper_"],
+      [class^="homePage_"],
+      [class^="container_"] {
+        background-color: @crust !important;
+      }
+
+      [class^="secondContainer_"] {
+        background-color: @crust !important;
+      }
+
+      [class^="secondContainer_"][class*=" normalHeader_"] {
+        background-image: linear-gradient(180deg, @surface0, @crust) !important;
+      }
+
+      [class^="secondMask_"] {
+        background: linear-gradient(180deg, fade(@crust, 0%), @crust 44%, @crust) !important;
+      }
+
+      /* 置頂標頭 */
+      [class^="index-module_pageHeader__"] {
+        position: sticky !important;
+        top: -137px !important;
+        z-index: 1000 !important;
+        background-color: fade(@mantle, 70%) !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+      }
+
+      [class^="index-module_navBarWrapper__"],
+      [class^="index-module_navBar__"],
+      [class^="index-module_navBarList__"] {
+        background: transparent !important;
+      }
+
+      [class^="index-module_navBarWrapper__"] {
+        border-top-color: @glass-line !important;
+        border-bottom-color: @glass-line !important;
+      }
+
+      [class^="contentBox_"],
+      [class^="relatedSearch_"] {
+        background-color: fade(@base, 70%) !important;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-color: @glass-line !important;
+        border-radius: 16px;
+        overflow: visible;
+      }
+
+      [class^="basicInfo_"],
+      [class^="editPrompt_"],
+      [class^="catalogWrapper_"] [class^="catalog_"],
+      [class^="abstractAlbum_"],
+      [class^="professionalWrapper_"],
+      [class^="tashuoWrap_"],
+      [class^="authEdit_"],
+      [class^="lemmaStatistics_"],
+      [class^="unionAd_"],
+      [class^="codeWraper_"] {
+        border-color: @glass-line !important;
+        border-radius: @radius;
+      }
+
+      /* 只裁切子元素底色會蓋住圓角的卡片；其餘卡片內有使用者資訊氣泡等彈出層，不可裁切 */
+      [class^="catalogWrapper_"] [class^="catalog_"],
+      [class^="abstractAlbum_"],
+      [class^="professionalWrapper_"],
+      [class^="tashuoWrap_"] {
+        overflow: hidden;
+      }
+
+      [class^="catalogWrapper_"] [class^="catalogList_"],
+      [class^="catalogWrapper_"] [class^="catalogText_"] {
+        background-color: transparent !important;
+      }
+
+      [class^="moduleTable_"] [class^="tableBox_"] {
+        border-radius: @radius;
+        overflow: hidden;
+      }
+
+      [class*="lemmaPicture_"] [class*="imageLink_"],
+      [class^="picture_"],
+      [class*="coverPic_"],
+      [class*="albumWrapper_"] {
+        border-radius: @radius;
+      }
+
+      [class^="relatedSearch_"] ul li,
+      [class^="toggle_"] {
+        border-radius: @radius !important;
+      }
+
+      .searchBar .rightWrapper .inputWrapper .searchInput {
+        border-radius: @radius 0 0 @radius;
+        border-right: 0 !important;
+      }
+
+      .searchBar .rightWrapper .lemmaBtn {
+        border-radius: 0 @radius @radius 0 !important;
+      }
+
+      .searchBar .rightWrapper .siteBtn {
+        border-radius: @radius !important;
+      }
+
+      .fixedWrapper,
+      .fixedWrapper .fixedBg {
+        background-color: fade(@mantle, 70%) !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+      }
+
+      .fixedWrapper .fixedBg {
+        background-color: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+
+      .fixedWrapper {
+        border-bottom-color: @glass-line;
+        box-shadow: @glass-shadow !important;
+      }
+
+      [class^="shareBubble_"],
+      .bubble-box,
+      .popup-content,
+      [class^="referenceTip_"],
+      [class^="referenceTip_"] [class^="content_"],
+      .searchBar .rightWrapper .inputWrapper .resultWrapper {
+        border-radius: @radius !important;
+        box-shadow: @glass-shadow !important;
+      }
+    }
+  }
+}

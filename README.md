@@ -56,3 +56,17 @@ Stylus 的 `@var` 變數需在檔案前自行補上：
 { printf '@accentColor: blue;\n@highlight-redirect: 0;\n@softness: 12;\n@modern-blur: 1;\n'; cat styles/wikipedia-monokai-wujidadi.user.css; } > /tmp/t.less
 npx -y less@4 /tmp/t.less /tmp/out.css
 ```
+
+## Baidu Baike Monokai (Wujidadi)
+
+檔案：`styles/baidu-baike-monokai-wujidadi.user.css`
+
+套用於 `baike.baidu.com` 的深色樣式，目前涵蓋詞條頁。
+調色盤、強調色與柔和度設定、毛玻璃與圓角版面都沿用 Wikipedia Monokai (Wujidadi)。
+
+百度百科的 class 名稱由 CSS Modules 產生，雜湊後綴（如 `contentBox_dUjtC` 的 `dUjtC`）會隨網站部署改變；
+選擇器一律以 `[class^="contentBox_"]` 或 `[class*="starMapSlide_"]` 比對前綴，不寫死雜湊。
+若某元件的 class 不在 `class` 屬性開頭（前面還有 `swiper-slide` 等全域 class），需改用 `*=` 比對。
+
+安裝方式與設定項目同 Wikipedia Monokai (Wujidadi)，但沒有「標示重新導向連結」。
+編譯驗證時需補上的 `@var` 為 `@accentColor`、`@softness`、`@modern-blur` 三個。
