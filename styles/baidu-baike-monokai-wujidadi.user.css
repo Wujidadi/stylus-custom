@@ -160,6 +160,125 @@
       color: @text;
     }
 
+    /* 搜尋框下拉選單：搜尋歷史、熱搜詞條、輸入建議 */
+    .searchBar {
+      .historyBox,
+      .hotBox,
+      .sugWrapper {
+        border-color: @surface2 !important;
+      }
+
+      .historyBox .historyTitle {
+        color: @text !important;
+
+        img {
+          filter: invert(0.88) hue-rotate(180deg);
+        }
+
+        .delAllBtn {
+          color: @overlay2 !important;
+        }
+      }
+
+      .historyBox .historyList .historyItem {
+        background: @surface0 !important;
+        border-color: @surface0 !important;
+        color: @subtext1 !important;
+
+        &.active {
+          background: transparent !important;
+          border-color: @surface2 !important;
+          color: @accent-color !important;
+        }
+
+        .delItemBtn {
+          background: @overlay0 !important;
+
+          svg {
+            color: @base !important;
+          }
+        }
+      }
+
+      .hotBox .hotList .hotItem {
+        &:hover {
+          border-color: @surface2 !important;
+
+          .hotTitle,
+          .hotDesc {
+            color: @accent-color !important;
+          }
+        }
+
+        .hotIdx,
+        img {
+          background-color: @surface1 !important;
+          color: @subtext1 !important;
+        }
+
+        .hotContent .hotTitle {
+          color: @text !important;
+        }
+
+        .hotContent .hotDesc {
+          color: @subtext0 !important;
+        }
+      }
+
+      .sugListWrapper {
+        color: @text !important;
+
+        .sugList li {
+          color: @text !important;
+
+          &.active {
+            background: @surface1 !important;
+            color: @accent-color !important;
+          }
+        }
+
+        .sugList svg {
+          color: @overlay2 !important;
+        }
+
+        .sugFooter {
+          background-color: @surface0 !important;
+          color: @subtext0 !important;
+        }
+      }
+
+      .resultBox {
+        .resultItem {
+          color: @text !important;
+
+          &.active {
+            background: @surface1 !important;
+            color: @accent-color !important;
+          }
+
+          .resultDesc {
+            color: @subtext0 !important;
+          }
+
+          &.active .resultDesc {
+            color: @accent-color !important;
+          }
+
+          .resultPic img {
+            border-color: @surface1 !important;
+          }
+        }
+
+        .resultFooter {
+          color: @overlay2 !important;
+
+          span {
+            color: @accent-color !important;
+          }
+        }
+      }
+    }
+
     .fixedWrapper {
       border-bottom: 1px solid @surface1;
       box-shadow: 0 2px 8px fade(@crust, 60%) !important;
@@ -1755,6 +1874,134 @@
           }
         }
       }
+    }
+
+    /* 搜尋結果頁 */
+    [class*="headTab_"] {
+      background-color: @base !important;
+      border-bottom: 1px solid @surface1;
+
+      .tabItem {
+        color: @subtext0 !important;
+
+        &:hover {
+          color: @text !important;
+        }
+      }
+    }
+
+    [class^="listWrap_"] {
+      [class^="total_"] {
+        color: @overlay2 !important;
+      }
+
+      [class^="title_"],
+      [class^="fengChaoTitle_"],
+      [class^="catalogItem_"],
+      [class^="catalogMore_"],
+      [class^="searchPage_"] {
+        color: @accent-color !important;
+      }
+
+      [class^="title_"]:hover {
+        color: @accent-hover !important;
+      }
+
+      [class^="abstract_"],
+      [class^="summary_"],
+      [class^="fengChaoSummary_"] {
+        color: @text !important;
+      }
+
+      [class^="fengChaoFooter_"] {
+        color: @overlay2 !important;
+      }
+
+      em {
+        color: @red !important;
+      }
+
+      [class^="imgCover_"] {
+        border-color: @surface1 !important;
+      }
+    }
+
+    [class^="hotLemmasContainer_"] {
+      [class^="title_"] {
+        filter: invert(0.88) hue-rotate(180deg);
+      }
+
+      [class^="item_"] {
+        color: @accent-color !important;
+
+        &:hover [class^="text_"] {
+          color: @accent-hover !important;
+        }
+
+        [class^="tag_"] {
+          background-color: @surface1 !important;
+          color: @subtext1 !important;
+        }
+
+        &:nth-child(-n + 3) [class^="tag_"] {
+          color: @base !important;
+        }
+      }
+
+      [class^="text_"] {
+        color: inherit !important;
+      }
+    }
+
+    [class^="pagerItem_"] {
+      background: @surface0 !important;
+      color: @accent-color !important;
+
+      &[class*=" activeItem_"],
+      &:hover {
+        background: @accent-color !important;
+        color: @base !important;
+      }
+    }
+
+    [class^="feedback-modal_"] {
+      background: @base !important;
+      border-color: @surface2 !important;
+      box-shadow: 0 4px 16px fade(@crust, 70%) !important;
+      color: @text !important;
+
+      [class^="modal-title_"],
+      [class^="form-label_"] {
+        color: @text !important;
+      }
+
+      [class^="close-btn_"] {
+        color: @subtext0 !important;
+
+        &:hover {
+          background: @surface1 !important;
+          color: @text !important;
+        }
+      }
+
+      [class^="form-input_"],
+      [class^="form-textarea_"],
+      [class^="upload-btn_"],
+      [class*="link-btn_"] {
+        background: @surface0 !important;
+        border-color: @surface2 !important;
+        color: @text !important;
+      }
+
+      [class^="submit-btn_"] {
+        background: @accent-color !important;
+        color: @base !important;
+      }
+    }
+
+    .component-message-wrap .message-content {
+      background: @surface0 !important;
+      color: @yellow !important;
     }
 
     /* 毛玻璃與圓角版面 */
