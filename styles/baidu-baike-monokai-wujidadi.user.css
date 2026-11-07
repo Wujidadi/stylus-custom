@@ -430,11 +430,16 @@
 
     /* 同名詞條展開面板與多義詞頁 */
     [class^="newPolysemantList_"] {
+      box-shadow: 0 4px 16px fade(@crust, 70%) !important;
+    }
+
+    [class^="newPolysemantList_"],
+    [class^="disambiguationWrap_"] {
       background: @base !important;
       border-color: @surface2 !important;
-      box-shadow: 0 4px 16px fade(@crust, 70%) !important;
 
       [class^="newPolysemantListTop_"],
+      [class^="disambiguationTools_"],
       [class^="tags_"] {
         background-color: @base !important;
       }
@@ -522,6 +527,83 @@
 
       svg {
         color: @overlay2 !important;
+      }
+    }
+
+    /* 「添加义项」等 bk-dialog 對話框 */
+    [class^="dialogTitle_"] {
+      color: @text !important;
+    }
+
+    .bk-dialog {
+      .dialog-content {
+        color: @subtext0 !important;
+      }
+
+      .dialog-title,
+      .dialog-content .alert-content .msg h1 {
+        color: @text !important;
+      }
+
+      .dialog-content .alert-content .msg pre,
+      .dialog-content .alert-content .msg .ext-info {
+        color: @subtext0 !important;
+      }
+
+      .dialog-content .alert-content .alert-icon {
+        border-color: fade(@accent-color, 40%) !important;
+        color: @accent-color !important;
+      }
+
+      .btn-list .btn-item {
+        background: @accent-color !important;
+        border-color: @accent-color !important;
+        color: @base !important;
+      }
+    }
+
+    [class^="addSubWrap_"] {
+      color: @text !important;
+
+      [class^="example_"] {
+        border-color: @surface2 !important;
+        color: @subtext0 !important;
+      }
+
+      [class^="formItem_"] {
+        input {
+          background: @surface0 !important;
+          border-color: @surface2 !important;
+          color: @text !important;
+        }
+
+        &[class*=" lemmaTitle_"] input {
+          background: transparent !important;
+        }
+
+        &[class*=" notice_"] {
+          color: @subtext0 !important;
+        }
+      }
+
+      [class^="numBox_"] {
+        color: @overlay2 !important;
+
+        [class^="red_"] {
+          color: @peach !important;
+        }
+      }
+
+      [class*=" submit_"] {
+        background: @accent-color !important;
+        border-color: @accent-color !important;
+        color: @base !important;
+      }
+
+      [class*=" cancel_"] {
+        background: transparent !important;
+        border-color: @accent-color !important;
+        color: @accent-color !important;
       }
     }
 
@@ -2057,7 +2139,8 @@
       }
 
       [class^="contentBox_"],
-      [class^="relatedSearch_"] {
+      [class^="relatedSearch_"],
+      [class^="disambiguationWrap_"] {
         background-color: fade(@base, 70%) !important;
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
