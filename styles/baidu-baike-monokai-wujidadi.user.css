@@ -1118,6 +1118,439 @@
       background-color: fade(@crust, 70%) !important;
     }
 
+    /* 首頁 */
+    [class^="homePage_"] {
+      [class^="publicizing_"] {
+        background: linear-gradient(180deg, @surface0, @mantle) !important;
+      }
+
+      /* 輪播焦點卡片 */
+      [class^="hotSpot_"] {
+        [class^="cardItem_"] {
+          border-bottom-color: @surface2 !important;
+        }
+
+        [class^="cardContent_"] {
+          background: fade(@base, 95%) !important;
+          box-shadow: 0 0 15px 15px fade(@base, 95%) !important;
+        }
+
+        [class^="cardTitle_"] {
+          color: @text !important;
+
+          &:hover {
+            color: @accent-color !important;
+          }
+        }
+
+        [class^="cardDesc_"] {
+          color: @subtext0 !important;
+        }
+
+        [class^="leftIcon_"],
+        [class^="rightIcon_"] {
+          color: @accent-color !important;
+        }
+
+        [class^="pager_"] span {
+          background-color: @overlay0 !important;
+
+          &[class*="selected_"] {
+            background-color: @accent-color !important;
+          }
+        }
+      }
+
+      /* 詞條統計 */
+      [class^="statistics_"] {
+        color: @accent-color !important;
+
+        [class^="editNum_"],
+        [class^="lemmaNum_"],
+        [class^="userNum_"] {
+          color: @accent-color !important;
+        }
+
+        [class^="num_"],
+        [class^="createBtn_"] {
+          text-shadow: none !important;
+        }
+
+        [class^="bg_"] {
+          opacity: 0.25;
+        }
+
+        [class^="createBtn_"] {
+          background: @accent-color !important;
+          border-color: @accent-color !important;
+          color: @base !important;
+
+          &:hover {
+            background: @accent-hover !important;
+          }
+        }
+
+        [class^="help_"] {
+          color: @subtext0 !important;
+        }
+      }
+
+      /* 區塊標題 */
+      [class^="hotLemmas_"],
+      [class^="vbaike_"],
+      [class^="history_"],
+      [class^="userCards_"],
+      [class^="userFeeds_"] {
+        > [class^="header_"],
+        > [class^="header_"] a,
+        > [class^="header_"] [class^="title_"] {
+          color: @text !important;
+        }
+      }
+
+      /* 熱搜詞條 */
+      [class^="hotLemmas_"] {
+        [class^="header_"] {
+          [class^="tab_"] {
+            color: @subtext0 !important;
+          }
+
+          [class*="selected_"] {
+            color: @accent-color !important;
+          }
+
+          [class^="divide_"] {
+            color: @surface2 !important;
+          }
+        }
+
+        [class^="largeLemma_"] {
+          background: fade(@accent-color, 22%) !important;
+
+          &[class*=" color-1_"] {
+            background: fade(@accent-color, 12%) !important;
+          }
+        }
+
+        [class^="mediumLemma_"],
+        [class^="smallLemma_"] {
+          background: @surface0 !important;
+
+          &[class*=" color-1_"] {
+            background: @base !important;
+          }
+        }
+
+        [class^="smallLemma_"][class*=" color-2_"] {
+          background: @base !important;
+        }
+
+        [class^="smallLemma_"][class*=" color-1_"] {
+          background: @surface0 !important;
+        }
+
+        [class^="lemmaTitle_"] {
+          color: @text !important;
+
+          svg {
+            color: @accent-color !important;
+          }
+        }
+
+        [class^="lemmaAbstract_"] {
+          color: @subtext0 !important;
+        }
+
+        [class^="largeLemma_"],
+        [class^="mediumLemma_"],
+        [class^="smallLemma_"] {
+          outline-color: @surface1 !important;
+
+          &:hover [class^="lemmaTitle_"] {
+            color: @accent-color !important;
+          }
+        }
+      }
+
+      /* V百科 */
+      [class^="vbaike_"] {
+        [class^="more_"],
+        [class^="kgContent_"] {
+          color: @subtext0 !important;
+        }
+
+        [class^="kgTip_"],
+        [class^="picTip_"] {
+          background-color: @accent-color !important;
+          color: @base !important;
+        }
+
+        [class^="kgTitle_"] {
+          color: @text !important;
+        }
+
+        [class^="lemma_"] {
+          background: @surface0 !important;
+          border-color: @surface2 !important;
+          color: @subtext1 !important;
+        }
+      }
+
+      /* 歷史上的今天 */
+      [class^="history_"] {
+        [class^="calendar_"] {
+          color: @subtext0 !important;
+
+          &:hover {
+            color: @accent-color !important;
+          }
+        }
+
+        > [class^="body_"] {
+          border-color: @surface1 !important;
+        }
+
+        [class^="contentHeader_"] {
+          background: @surface0 !important;
+          border-bottom-color: @surface1 !important;
+          color: @overlay2 !important;
+
+          svg:hover {
+            color: @accent-color !important;
+          }
+        }
+
+        [class^="date_"] {
+          color: @text !important;
+
+          &:hover {
+            color: @accent-color !important;
+          }
+        }
+
+        [class^="dot_"] {
+          background: @overlay0 !important;
+          border-color: @base !important;
+        }
+
+        [class^="eventItem_"]:hover [class^="dot_"] {
+          background: @accent-color !important;
+        }
+
+        [class^="event_"] {
+          border-left-color: @surface1 !important;
+        }
+
+        [class^="eventTitle_"] {
+          color: @subtext1 !important;
+        }
+
+        [class^="eventImg_"] {
+          border-color: @surface1 !important;
+        }
+
+        [class^="eventDesc_"] {
+          color: @subtext0 !important;
+        }
+      }
+
+      /* 百科用戶 */
+      [class^="userWrapper_"] {
+        background: @base !important;
+      }
+
+      [class^="cardWrapper_"] {
+        [class^="frontHead_"],
+        [class^="backHead_"],
+        [class^="flag_"] {
+          background-color: @surface2 !important;
+          background-blend-mode: multiply;
+        }
+
+        [class^="frontBody_"],
+        [class^="backBody_"] {
+          background: @mantle !important;
+          border-color: @surface1 !important;
+        }
+
+        [class^="cardTag_"] {
+          background: fade(@crust, 55%) !important;
+          color: @subtext1 !important;
+        }
+
+        [class^="nameTxt_"],
+        [class^="uname_"] {
+          color: @text !important;
+        }
+
+        [class^="lemmaInfo_"] {
+          border-color: @surface1 !important;
+          color: @subtext0 !important;
+        }
+
+        [class^="udesc_"] {
+          color: @subtext0 !important;
+        }
+
+        [class^="lemmaItem_"] {
+          background: @surface0 !important;
+          border-color: @surface1 !important;
+          color: @subtext1 !important;
+
+          &:hover {
+            border-color: @accent-color !important;
+            color: @accent-color !important;
+          }
+        }
+
+        [class^="btnWrapper_"] {
+          background: @surface0 !important;
+        }
+
+        [class^="btnBg_"] {
+          background: @mantle !important;
+        }
+
+        [class^="users_"] [class*="selected_"] span {
+          border-color: @text !important;
+        }
+      }
+
+      /* 用戶動態 */
+      [class^="userFeeds_"] {
+        [class^="mask_"] {
+          background-color: @base !important;
+        }
+
+        [class^="time_"] {
+          background: @surface0 !important;
+          border-color: @surface2 !important;
+          color: @subtext0 !important;
+        }
+
+        [class^="footer_"] {
+          border-top-color: @surface1 !important;
+
+          [class^="footerTitle_"] {
+            color: @text !important;
+          }
+
+          [class^="desc_"] {
+            color: @subtext0 !important;
+          }
+
+          [class^="btn_"] {
+            background: @surface0 !important;
+            border-color: @surface2 !important;
+            color: @subtext1 !important;
+
+            &:hover {
+              background: @accent-color !important;
+              color: @base !important;
+            }
+          }
+        }
+      }
+
+      [class^="dybamicInfo_"] {
+        color: @subtext0 !important;
+
+        [class^="dname_"] {
+          color: @accent-color !important;
+        }
+
+        [class^="sup_"] {
+          color: @text !important;
+        }
+
+        [class^="border_"] {
+          background: @surface2 !important;
+        }
+      }
+
+      [class^="events_"] {
+        [class^="pager_"] span {
+          background-color: @surface1 !important;
+
+          &[class*="selected_"] {
+            background-color: @overlay2 !important;
+          }
+        }
+
+        [class^="textEvents_"] a {
+          color: @subtext0 !important;
+
+          &::before {
+            color: @overlay2 !important;
+          }
+
+          &:hover {
+            color: @accent-color !important;
+          }
+        }
+      }
+
+      /* 特色欄目 */
+      [class^="features_"] {
+        border-top-color: @surface1 !important;
+
+        [class^="item_"] {
+          background-color: @surface0 !important;
+          background-blend-mode: multiply;
+          border-color: @surface1 !important;
+        }
+
+        [class^="title_"] {
+          color: @text !important;
+        }
+
+        [class^="desc_"] {
+          color: @subtext0 !important;
+        }
+
+        [class^="link_"] {
+          border-bottom-color: @overlay0 !important;
+          color: @subtext1 !important;
+
+          &:hover {
+            border-color: @accent-color !important;
+            color: @accent-color !important;
+          }
+        }
+
+        [class^="leftIcon_"],
+        [class^="rightIcon_"] {
+          color: @overlay2 !important;
+
+          &:hover {
+            color: @accent-color !important;
+          }
+        }
+      }
+
+      /* 品牌合作 */
+      [class^="cooperation_"] {
+        > [class^="title_"],
+        [class^="desc_"] > [class^="title_"] {
+          color: @text !important;
+        }
+
+        [class^="descContent_"] {
+          color: @subtext0 !important;
+        }
+
+        [class^="descMore_"] {
+          border-bottom-color: @overlay0 !important;
+          color: @subtext1 !important;
+
+          &:hover {
+            border-color: @accent-color !important;
+            color: @accent-color !important;
+          }
+        }
+      }
+    }
+
     /* 毛玻璃與圓角版面 */
     & when (@modern-blur = 1) {
       @glass-line: fade(@text, 10%);
@@ -1138,6 +1571,10 @@
 
       [class^="secondContainer_"][class*=" normalHeader_"] {
         background-image: linear-gradient(180deg, @surface0, @crust) !important;
+      }
+
+      [class^="homePage_"] [class^="publicizing_"] {
+        background: linear-gradient(180deg, @surface0, @crust) !important;
       }
 
       [class^="secondMask_"] {
