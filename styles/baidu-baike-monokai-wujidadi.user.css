@@ -12,7 +12,8 @@
 @var checkbox modern-blur "毛玻璃與圓角版面" 1
 ==/UserStyle== */
 
-@-moz-document domain('baike.baidu.com') {
+/* 只套用於首頁、詞條頁與搜尋結果頁；各頻道子頁（历史上的今天、V百科、科学百科等）各有主題版型，維持原樣 */
+@-moz-document regexp('https?://baike\\.baidu\\.com/(item/.*|search([?#].*)?|([?#].*)?)') {
   :root {
     #monokai(@accentColor);
   }

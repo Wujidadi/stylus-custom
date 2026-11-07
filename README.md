@@ -61,7 +61,8 @@ npx -y less@4 /tmp/t.less /tmp/out.css
 
 檔案：`styles/baidu-baike-monokai-wujidadi.user.css`
 
-套用於 `baike.baidu.com` 的深色樣式，涵蓋詞條頁、首頁與搜尋結果頁。
+套用於 `baike.baidu.com` 的深色樣式，只作用於首頁、詞條頁（`/item/`）與搜尋結果頁（`/search`）；
+历史上的今天、V百科、科学百科等頻道子頁各有主題版型，不套用。
 調色盤、強調色與柔和度設定、毛玻璃與圓角版面都沿用 Wikipedia Monokai (Wujidadi)。
 
 百度百科的 class 名稱由 CSS Modules 產生，雜湊後綴（如 `contentBox_dUjtC` 的 `dUjtC`）會隨網站部署改變；
