@@ -308,6 +308,103 @@
       }
     }
 
+    /* 同名詞條展開面板與多義詞頁 */
+    [class^="newPolysemantList_"] {
+      background: @base !important;
+      border-color: @surface2 !important;
+      box-shadow: 0 4px 16px fade(@crust, 70%) !important;
+
+      [class^="newPolysemantListTop_"],
+      [class^="tags_"] {
+        background-color: @base !important;
+      }
+
+      [class^="tags_"] {
+        color: @subtext0 !important;
+
+        [class*="active_"] {
+          background: fade(@accent-color, 15%) !important;
+          color: @accent-color !important;
+        }
+      }
+
+      [class^="splitLine_"] {
+        background: @surface1 !important;
+      }
+    }
+
+    [class^="newPolysemantList_"],
+    [class^="disambiguationWrap_"] {
+      [class^="contentItemTitle_"] {
+        color: @overlay2 !important;
+      }
+
+      [class^="contentItemChild_"] {
+        color: @accent-color !important;
+      }
+
+      [class^="contentItemChildIcon_"] {
+        background-color: @overlay0 !important;
+      }
+
+      [class*="childActive_"] {
+        color: @text !important;
+
+        [class^="contentItemChildIcon_"] {
+          background-color: @accent-color !important;
+        }
+      }
+    }
+
+    [class^="ploysemantTool_"] {
+      [class^="ploysemantToolLeft_"] {
+        color: @text !important;
+      }
+
+      [class^="ploysemantToolRight_"],
+      [class^="ploysemantToolItem_"],
+      [class^="ploysemantToolText_"] {
+        color: @subtext0 !important;
+      }
+
+      [class^="ploysemantToolItemInputWrap_"],
+      [class^="ploysemantToolItemResultWrap_"] {
+        background-color: @surface0 !important;
+        border-color: @surface2 !important;
+      }
+
+      [class^="ploysemantToolItemInputWrap_"]::after {
+        background: @surface2 !important;
+      }
+
+      [class^="ploysemantInput_"] {
+        background: transparent !important;
+        color: @text !important;
+      }
+
+      [class^="ploysemantToolResultText_"] {
+        color: @text !important;
+
+        &:hover {
+          background: @surface1 !important;
+        }
+      }
+
+      [class^="ploysemantToolItemInputBoxShadow_"] {
+        box-shadow: 0 2px 12px fade(@crust, 60%) !important;
+      }
+    }
+
+    [class^="disambiguationWrap_"] [class^="lemmaTitle_"] {
+      h1 {
+        color: @text !important;
+      }
+
+      svg {
+        color: @overlay2 !important;
+      }
+    }
+
     /* 側欄「TA说」的查看更多 */
     [class^="tsTitle_"] [class^="tsMore_"] [class^="item_"],
     [class^="tsTitle_"] [class^="tsMore_"] [class^="item_"] span {
