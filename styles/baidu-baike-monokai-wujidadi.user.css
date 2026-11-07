@@ -308,6 +308,115 @@
       }
     }
 
+    /* 側欄「TA说」的查看更多 */
+    [class^="tsTitle_"] [class^="tsMore_"] [class^="item_"],
+    [class^="tsTitle_"] [class^="tsMore_"] [class^="item_"] span {
+      color: @subtext0 !important;
+    }
+
+    /* 知識圖譜卡片 */
+    [class^="graphCardWrapper_"] {
+      background-color: @surface0 !important;
+      background-blend-mode: multiply;
+
+      [class^="graphSlogen_"],
+      [class^="lemmaTitle_"] {
+        color: @text !important;
+      }
+
+      [class^="subTitle_"],
+      [class^="lemmaDesc_"],
+      [class^="viewMore_"] {
+        color: @subtext0 !important;
+      }
+    }
+
+    /* 人物認證框 */
+    [class^="personalAuth_"] {
+      background: @mantle !important;
+
+      [class^="text_"] {
+        color: @text !important;
+
+        a {
+          color: @accent-color !important;
+        }
+      }
+    }
+
+    /* 醫生審核卡片 */
+    [class^="medical_"] [class^="contentItem_"] {
+      [class^="docName_"] {
+        color: @text !important;
+      }
+
+      p {
+        color: @subtext0 !important;
+      }
+
+      [class^="docImg_"] {
+        border-color: @surface2 !important;
+      }
+
+      [class^="docReview_"] {
+        background: @surface0 !important;
+        border-color: @surface2 !important;
+        color: @subtext0 !important;
+      }
+
+      &[class*=" hasNoImg_"] {
+        border-left-color: @accent-color !important;
+      }
+    }
+
+    /* 頁首防詐騙公告列 */
+    [class^="declareWrap_"] {
+      background: fade(@yellow, 12%) !important;
+      color: @yellow !important;
+
+      [class^="goDetail_"] {
+        color: @accent-color !important;
+      }
+    }
+
+    /* 摘要下方的專業服務按鈕（如法行宝） */
+    [class^="serviceBtnBox_"] {
+      color: @subtext0 !important;
+
+      [class^="serviceBtn_"] {
+        background: transparent !important;
+        border-color: @accent-color !important;
+        color: @accent-color !important;
+      }
+    }
+
+    /* 最新新聞 */
+    [class^="hotspotNavbar_"] {
+      background: @surface0 !important;
+
+      li {
+        color: @subtext1 !important;
+      }
+
+      li[class*="active_"] {
+        background: @accent-color !important;
+        color: @base !important;
+      }
+    }
+
+    [class^="hotspotContentWrapper_"] {
+      background: @mantle !important;
+    }
+
+    [class^="hotspotContentDesc_"] {
+      color: @subtext0 !important;
+    }
+
+    [class^="hotspotContentTime_"],
+    [class^="hotspotContentFrom_"] {
+      color: @overlay2 !important;
+    }
+
     /* 待完善提示與「內容是否有幫助」回饋列 */
     [class^="editPrompt_"] {
       background: @mantle !important;
