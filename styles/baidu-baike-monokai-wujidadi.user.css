@@ -1080,6 +1080,29 @@
       color: @subtext0 !important;
     }
 
+    /* 人物关系 */
+    [class^="relationContainer_"] {
+      border-color: @surface1 !important;
+
+      [class^="lemmaMore_"],
+      [class^="singleTitle_"],
+      [class^="multiTitle_"],
+      [class*="relationTitle_"] {
+        color: @text !important;
+      }
+
+      [class^="humanIcon_"],
+      [class^="relationName_"],
+      [class^="relationSummary_"] {
+        color: @subtext0 !important;
+      }
+
+      svg {
+        color: @overlay2 !important;
+        fill: currentColor;
+      }
+    }
+
     [class^="nextBg_"],
     [class^="specialBg_"] {
       background-image: linear-gradient(270deg, @base, fade(@base, 0%)) !important;
